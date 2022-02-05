@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\MailSender;
+use App\Services\NotifierInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->app->bind(NotifierInterface::class, function (){
+            return new MailSender();
+        });
     }
 }

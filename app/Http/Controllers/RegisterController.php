@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\Registered;
@@ -28,7 +29,9 @@ class RegisterController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-        event(new Registered($user));
+//        event(new Registered($user));
+        $user_mail = app()->make(UserService::class);
+        $user_mail->sendNotification('to', 'message');
         return view('regist.complete', compact('user'));
     }
 }

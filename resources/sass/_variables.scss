@@ -1,0 +1,108 @@
+// Body
+$body-bg: #f8fafc;
+
+// Typography
+$font-family-sans-serif: 'Nunito', sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+
+// Colors
+$blue: #3490dc;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66d9b;
+$red: #e3342f;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$base-green: #187940;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+$brown: #b3642b;
+
+//btn-brown
+.btn-brown{
+    color: #fff;
+    border-color: $brown;
+    background-color: $brown;
+    &:hover{
+        color: #fff;
+        border-color: darken($brown, 10%);
+        background-color: darken($brown, 10%);
+    }
+}
+
+//ナビバー
+.navbar{
+    a{
+        font-weight: 600;
+    }
+    span{
+        transition: all 0.2s;
+    }
+    span:hover{
+        color:darken($brown, 20%);
+        border-bottom:solid 2px $brown;
+        padding-bottom:-3px;
+        transition: all 0.2s;
+
+    }
+}
+
+//likedボタン
+.like-wrapper{
+    color: $brown;
+
+    i{
+        &:hover{
+            color:lighten($brown, 20%);
+            cursor: pointer;
+        }
+    }
+    .liked {
+        font-weight: bold;
+    }
+    .fa-thumbs-up{
+        animation: pyonpyon 3s infinite ease;
+    }
+    @keyframes pyonpyon {
+        0% {
+            transform: translate(0, 0);
+        }
+        5% {
+            transform: translate(0, 0);
+        }
+        10% {
+            transform: translate(0, 0);
+        }
+        20% {
+            transform: translate(0, -2px);
+        }
+        25% {
+            transform: translate(0, 0);
+        }
+        30% {
+            transform: translate(0, -2px);
+        }
+        50% {
+            transform: translate(0, 0);
+        }
+        100% {
+            transform: translate(0, 0);
+        }
+    }
+
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: $brown;
+    border-color: $brown;
+}
+.page-link{
+    color:$brown;
+    &:hover{
+        color:$brown;
+    }
+}

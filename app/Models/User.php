@@ -20,6 +20,11 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'nickname',
+        'about_me',
+        'favorite_book',
+        'favorite_book2',
+        'favorite_book3',
         'password',
     ];
 
@@ -41,4 +46,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Userと紐づくslidesレコードを取得
+     */
+    public function slides()
+    {
+        return $this->hasMany('App\Models\Slide');
+    }
 }

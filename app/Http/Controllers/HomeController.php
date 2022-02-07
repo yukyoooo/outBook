@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Slide;
+use App\Repositories\SlideRepository;
+
 //use Illuminate\Http\Request;
 //use App\Models\Tag;
 //use App\Models\googleBookApi;
@@ -16,15 +17,21 @@ use App\Models\Slide;
 
 class HomeController extends Controller
 {
+    public SlideRepository $repository;
+
+    public function __construct(SlideRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
     public function index ()
     {
-        $slides = Slide::with('user')
-            ->orderByDesc('created_at')
-            ->paginate(15);
+        $slides = $this->repository->getAll();
 //        $slides->loadCount('likes');
 //        $slides->loadCount(['likes as liked' => function (Builder $query) {
 //            $query->where('ip', '=', request()->ip());
 //        }]);
+//        dd($slides);
         return view('home.index', compact('slides'));
     }
 //

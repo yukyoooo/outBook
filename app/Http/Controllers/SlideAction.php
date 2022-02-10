@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\SlideRepository;
+use App\Services\SlideService;
 
-//use Illuminate\Http\Request;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
+
 //use App\Models\Tag;
 //use App\Models\googleBookApi;
 //use Illuminate\Support\Facades\Auth;
@@ -15,24 +17,32 @@ use App\Repositories\SlideRepository;
 
 
 
-class HomeController extends Controller
+class SlideAction extends Controller
 {
-    public SlideRepository $repository;
+    private SlideService $slide;
 
-    public function __construct(SlideRepository $repository)
+    public function __construct(SlideService $slide)
     {
-        $this->repository = $repository;
+        $this->slide = $slide;
     }
 
     public function index ()
     {
-        $slides = $this->repository->getAll();
+        $slides = $this->slide->getAll();
 //        $slides->loadCount('likes');
 //        $slides->loadCount(['likes as liked' => function (Builder $query) {
 //            $query->where('ip', '=', request()->ip());
 //        }]);
 //        dd($slides);
-        return view('home.index', compact('slides'));
+        return $slides;
+    }
+
+    public function create(Request $request)
+    {
+        $user_id = intval($request->user_id);
+        $id = $this->slide->store($user_id, $request->book_title);
+        return response('', Response::HTTP_CREATED)
+            ->header('Location', '/api/slides/'.$id);
     }
 //
 //    public function selectBook(Request $request)

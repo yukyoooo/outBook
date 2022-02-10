@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\Services\MailSender;
-use App\Services\NotifierInterface;
+use App\DataProvider\SlideRepositoryInterface;
+use App\Domain\Repository\SlideRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -15,7 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(SlideRepositoryInterface::class,
+        SlideRepository::class
+        );
     }
 
     /**
@@ -25,8 +27,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->bind(NotifierInterface::class, function (){
-            return new MailSender();
-        });
+
     }
 }

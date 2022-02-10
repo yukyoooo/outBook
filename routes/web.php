@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SlideAction;
 use Illuminate\Support\Facades\Route;
 
 
@@ -15,16 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // BookApp
-Route::get('/', [HomeController::class, 'index'])->name('home.index');
-Route::get('/show/{id}', [HomeController::class, 'show'])->name('home.show');
-Route::middleware(['auth'])->group(function(){
-    Route::get('/create', [HomeController::class, 'create'])->name('home.create');
-    Route::get('/edit/{id}', [HomeController::class, 'edit'])->name('home.edit');
-    Route::post('/update/{id}', [HomeController::class, 'update'])->name('home.update');
-    Route::post('/destroy/{id}', [HomeController::class, 'destroy'])->name('home.destroy');
-    Route::post('/store', [HomeController::class, 'store'])->name('home.store');
-    Route::get('/selectBook', [HomeController::class, 'selectBook'])->name('home.selectBook');
-});
+//Route::get('/', [SlideAction::class, 'index'])->name('home.index');
+//Route::get('/show/{id}', [SlideAction::class, 'show'])->name('home.show');
+//Route::middleware(['auth'])->group(function(){
+//    Route::get('/create', [SlideAction::class, 'create'])->name('home.create');
+//    Route::get('/edit/{id}', [SlideAction::class, 'edit'])->name('home.edit');
+//    Route::post('/update/{id}', [SlideAction::class, 'update'])->name('home.update');
+//    Route::post('/destroy/{id}', [SlideAction::class, 'destroy'])->name('home.destroy');
+//    Route::post('/store', [SlideAction::class, 'store'])->name('home.store');
+//    Route::get('/selectBook', [SlideAction::class, 'selectBook'])->name('home.selectBook');
+//});
 
 
 

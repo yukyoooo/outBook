@@ -71,7 +71,7 @@
 
 
                 for (let perf of invoice.performances) {
-                    const play = plays[perf.playID];
+                    const play = playFor(perf);
                     let thisAmount = amountFor(perf, play);
 
 
@@ -87,6 +87,10 @@
                 result += `Amount owed is ${format(totalAmount/100)}\n`;
                 result += `you earned ${volumeCredits} credits\n`;
                 return result;
+            }
+
+            function playFor(aPerformance){
+                return plays[aPerformance.playID];
             }
 
             function amountFor(aPerformance, play){

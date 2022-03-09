@@ -7,7 +7,8 @@
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "mix --production"
+        "production": "mix --production",
+        "test": "mocha"
     },
     "devDependencies": {
         "@popperjs/core": "^2.10.2",
@@ -19,5 +20,11 @@
         "resolve-url-loader": "^5.0.0",
         "sass": "^1.32.11",
         "sass-loader": "^11.0.1"
+    },
+    "dependencies": {
+        "expect": "^27.5.1",
+        "jsdom": "^19.0.0",
+        "jsdom-global": "^3.0.2",
+        "mocha": "^9.2.1"
     }
 }

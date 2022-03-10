@@ -27,9 +27,8 @@
         <p><a href="/login">ログイン</a><br>
         <a href="/register">会員登録</a></p>
     @endif
-        <p id = "refactoring"></p>
+        <div id = "refactoring"></div>
         <script type="text/javascript" src="/js/app.js"></script>
-        <script type="text/javascript" src="/js/refoctoring_1.js"></script>
 
 
 

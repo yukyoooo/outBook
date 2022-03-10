@@ -69,9 +69,8 @@
                     totalAmount += amountFor(perf);
                 }
 
-                let volumeCredits = totalVolumeCredits();
                 result += `Amount owed is ${usd(totalAmount)}\n`;
-                result += `you earned ${volumeCredits} credits\n`;
+                result += `you earned ${totalVolumeCredits()} credits\n`;
                 return result;
 
                 function totalVolumeCredits() {

@@ -66,13 +66,12 @@
                     //注文の内訳を出力
                     result += `  ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience} seats)\n`;
                 }
-                let totalAmount = appleSauce();
 
-                result += `Amount owed is ${usd(totalAmount)}\n`;
+                result += `Amount owed is ${usd(totalAmount())}\n`;
                 result += `you earned ${totalVolumeCredits()} credits\n`;
                 return result;
 
-                function appleSauce(){
+                function totalAmount(){
                     let totalAmount = 0;
                     for(let perf of invoice.performances){
                         totalAmount += amountFor(perf);

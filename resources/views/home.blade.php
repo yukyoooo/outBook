@@ -31,7 +31,6 @@
         <script type="text/javascript" src="/js/app.js"></script>
 
 
-
     {{-- test  http://localhost/home --}}
         <script src="/test.js"></script>
 

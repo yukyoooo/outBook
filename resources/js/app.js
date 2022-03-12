@@ -1,4 +1,4 @@
 require('./bootstrap');
-require('./refoctoring');
-require('./test.js');
+require('./refactoring');
+require('./test/test.js');
 
